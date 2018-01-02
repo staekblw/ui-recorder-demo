@@ -21,8 +21,8 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    it('url: http://baidu.com', async function(){
-        await driver.url(_(`http://baidu.com`));
+    it('url: http://10.45.59.241:8080/', async function(){
+        await driver.url(_(`http://10.45.59.241:8080/`));
     });
 
     it('waitBody: ', async function(){
@@ -31,9 +31,31 @@ module.exports = function(){
         });
     });
 
-    it('click: 新闻 ( //a[text()="新闻"], 13, 9, 0 )', async function(){
-        await driver.sleep(300).wait('//a[text()="新闻"]', 30000)
-               .sleep(300).mouseMove(13, 9).click(0);
+    it('click: 地理信息中心 ( //a[text()="地理信息中心"], 42, 18, 0 )', async function(){
+        await driver.sleep(300).wait('//a[text()="地理信息中心"]', 30000)
+               .sleep(300).click(0);
+    });
+
+    it('waitBody: ', async function(){
+        await driver.sleep(500).wait('body', 30000).html().then(function(code){
+            isPageError(code).should.be.false;
+        });
+    });
+
+    it('click: 失败项目 ( //a[text()="失败项目"], 33, 14, 0 )', async function(){
+        await driver.sleep(300).wait('//a[text()="失败项目"]', 30000)
+               .sleep(300).click(0);
+    });
+
+    it('waitBody: ', async function(){
+        await driver.sleep(500).wait('body', 30000).html().then(function(code){
+            isPageError(code).should.be.false;
+        });
+    });
+
+    it('click: Jenkins ( //a[text()="Jenkins"], 41, 14, 0 )', async function(){
+        await driver.sleep(300).wait('//a[text()="Jenkins"]', 30000)
+               .sleep(300).click(0);
     });
 
     it('waitBody: ', async function(){

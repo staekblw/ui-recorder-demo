@@ -1,8 +1,8 @@
 {
     "webdriver": {
-        "host": "127.0.0.1",
+        "host": "10.45.59.241",
         "port": "4444",
-        "browsers": ""
+        "browsers": "chrome"
     },
     "vars": {},
     "recorder": {
